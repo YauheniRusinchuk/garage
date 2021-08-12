@@ -48,6 +48,8 @@
 
     .burger-menu__link {
       @include linkBurgerMenu;
+      font-family: "AGAalenBold Roman", arial;
+
       color: $grey;
       justify-content: right;
       text-decoration: none;
@@ -58,15 +60,3 @@
     }
   }
 }
-
-//  @include text;
-//   font-size: 1rem;
-//   color: $placeholder;
-//   padding: 0.5rem;
-//   width: 13.875rem;
-//   text-align: center;
-//   @include mobile {
-//     font-size: 0.875rem;
-//     line-height: 1.5rem;
-//     width: 100%;
-//   }

@@ -1,6 +1,9 @@
 import React from "react";
 
 import "../../styles/header/BurgerMenu.scss";
+import Img from "../../assets/image/burgerMenu/closeModalMenu.png";
+// import ReactLogo from '../../assets/image/header/phone.svg';
+
 
 function BurgerMenu(props) {
   const { isVisible, setVisible } = props;
@@ -27,7 +30,7 @@ function BurgerMenu(props) {
             <span className="burger-menu__logotype__orange">G</span>ARAGE
           </h2>
           <button onClick={changeVisible} className="burger-menu__button">
-            <img src="../../assets/image/burgerMenu/closeModalMenu.png" />
+            <img src={Img} />
           </button>
         </div>
         <div className="burger-menu__links">
@@ -36,7 +39,8 @@ function BurgerMenu(props) {
           )}
         </div>
         <div>
-          {/* <ReactSVG src={SvgLogo} /> */}
+          
+          {/* <ReactLogo />  */}
           <a href="tel:+375(33)699-86-04" className="burger-menu__phone">
             +375(33)699-86-04
           </a>
