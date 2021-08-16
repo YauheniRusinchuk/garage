@@ -1,0 +1,60 @@
+@import "../common/breakpoints.scss";
+@import "../common/fonts.scss";
+@import "../common/colors.scss";
+
+.burger-menu__visible {
+  display: none;
+}
+
+.burger-menu {
+  background-color: $backgroundBlue;
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 80%;
+  height: 100vh;
+
+  .burger-menu__header{
+    display: flex;
+  }
+  .burger-menu__logotype {
+    @include title;
+    color: $lightGrey;
+    .burger-menu__logotype__orange{
+      color: $orange;
+    }
+  }
+
+  .burger-menu__button {
+    font-size: 20px;
+    border: none;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    margin: 15px 15px 0;
+    color: $realWhite;
+  }
+  .burger-menu__navs {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-top: 50px;
+    width: 100%;
+    align-items: center;
+    margin: 0 auto;
+
+    .burger-menu__nav {
+      @include linkBurgerMenu;
+      color: $grey;
+      justify-content: right;
+      text-decoration: none;
+      padding: 15px 0;
+      font-size: 30px;
+      width: 100%;
+      text-align: right;
+    }
+  }
+}

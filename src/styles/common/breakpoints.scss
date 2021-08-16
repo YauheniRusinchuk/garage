@@ -23,7 +23,7 @@
 }
 
 @mixin custom($screen) {
-  @media (min-width: $screen + 'px') {
+  @media (min-width: $screen + "px") {
     @content;
   }
 }
