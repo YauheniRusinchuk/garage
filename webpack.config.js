@@ -1,32 +1,32 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index",
-  mode: "production",
+  entry: ["@babel/polyfill", "./src/index"],
+  mode: "development",
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     port: 3001,
   },
   output: {
     filename: `[name].bundle.js`,
-    path: path.resolve(__dirname, "dist"),
+    publicPath: "auto",
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
   },
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: "all",
-  //   },
-  //   minimize: true,
-  //   minimizer: [new OptimizeCssAssetsPlugin(), new TerserPlugin()],
-  // },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+    minimize: true,
+    minimizer: [new OptimizeCssAssetsPlugin(), new TerserPlugin()],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
@@ -43,19 +43,19 @@ module.exports = {
     //     },
     //   ],
     // }),
-    new MiniCssExtractPlugin({
-      filename: "static/css/[name].[contenthash:8].css",
-      chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
-    }),
   ],
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(js|mjs|jsx|ts|tsx)$/,
         loader: "babel-loader",
         exclude: /node_modules/,
         options: {
-          presets: ["@babel/preset-react", "@babel/preset-typescript"],
+          presets: [
+            "@babel/preset-env",
+            "@babel/preset-react",
+            "@babel/preset-typescript",
+          ],
         },
       },
       {
@@ -77,24 +77,14 @@ module.exports = {
             loader: "file-loader",
             options: {
               name: "[name].[ext]",
-              outputPath: "static/fonts",
+              outputPath: "assets/fonts",
             },
           },
         ],
       },
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              name: "[name].[ext]",
-              outputPath: "static/css",
-            },
-          },
-          "style-loader",
-          "css-loader",
-        ],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.s[ac]ss$/i,

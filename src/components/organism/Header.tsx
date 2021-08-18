@@ -1,22 +1,23 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import BurgerMenu from "../molecules/BurgerMenu";
 import "../../styles/organisms/Header.scss";
 
+function Header(): JSX.Element {
+  const [visible, setVisible] = useState(true);
 
-function Header() {
-  const [visible, setVisible] = useState(true)
-
-  const changeVisible = () =>{
+  const changeVisible = () => {
     setVisible(!visible);
-  }
+  };
 
   return (
     <header className="header">
       Header
-      <button onClick={changeVisible}>x</button>
-      {visible && <BurgerMenu isVisible={visible} setVisible={setVisible}/> }
+      <button type="button" onClick={changeVisible}>
+        x
+      </button>
+      {visible && <BurgerMenu isVisible={visible} setVisible={setVisible} />}
     </header>
-  )
+  );
 }
 
 export default Header;

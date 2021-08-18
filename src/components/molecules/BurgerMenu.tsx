@@ -2,17 +2,15 @@ import React from "react";
 
 import "../../styles/molecules/BurgerMenu.scss";
 import Img from "../../../assets/t.jpeg";
-import { ReactComponent as MySvg } from "../../../assets/cashback.svg"
+import { ReactComponent as MySvg } from "../../../assets/cashback.svg";
 import BurgerMenuLink from "../atoms/BurgerMenuLink";
 
 function BurgerMenu(props: any) {
   const { isVisible, setVisible } = props;
 
-  const changeVisible = () => {
-    setVisible(false);
-  };
+  const changeVisible = () => setVisible(false);
 
-  const links: {title: string, link: string}[] = [
+  const links: { title: string; link: string }[] = [
     { title: "Главная", link: "https://www.google.com/" },
     { title: "О нас", link: "https://www.google.com/" },
     { title: "Каталог", link: "https://www.google.com/" },
@@ -27,19 +25,24 @@ function BurgerMenu(props: any) {
       <div className="burger-menu">
         <div className="burger-menu__header">
           <h2 className="burger-menu__logotype">
-            <span className="burger-menu__logotype__orange">G</span>ARAGE
+            <span className="burger-menu__logotype__orange">kiss</span>
+            miss
           </h2>
-          <button onClick={changeVisible} className="burger-menu__button">
-            <img src={Img} />
+          <button
+            type="button"
+            onClick={changeVisible}
+            className="burger-menu__button"
+          >
+            <img src={Img} alt="Cartoons" />
           </button>
         </div>
-        <ul className="burger-menu__navs">
+        <ul className="burger-menu__links">
           {links.map((link) => (
-            <BurgerMenuLink key={link.title} props={link}/>
+            <BurgerMenuLink key={link.title} item={link} />
           ))}
         </ul>
         <div>
-          <MySvg />{" "}
+          <MySvg />
           <a href="tel:+375(33)699-86-04" className="burger-menu__phone">
             +375(33)699-86-04
           </a>

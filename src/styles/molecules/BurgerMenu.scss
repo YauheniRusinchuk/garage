@@ -37,7 +37,7 @@
     margin: 15px 15px 0;
     color: $realWhite;
   }
-  .burger-menu__navs {
+  .burger-menu__links {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -46,7 +46,7 @@
     align-items: center;
     margin: 0 auto;
 
-    .burger-menu__nav {
+    .burger-menu__link {
       @include linkBurgerMenu;
       color: $grey;
       justify-content: right;

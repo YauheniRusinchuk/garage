@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
-function Main() {
-    return (
-        <div>
-            
-        </div>
-    )
+function Main(): JSX.Element {
+  return <div />;
 }
 
-export default Main
+export default Main;
