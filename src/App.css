@@ -1,5 +1,7 @@
-@import 'normalize.css';
+@import "normalize.css";
+@import "./styles/common/reset.scss";
 
-body { 
-  font-family: 'Proxima-Nova'
+body {
+  font-family: "Arial";
+  width: 80px;
 }

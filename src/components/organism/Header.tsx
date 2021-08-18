@@ -13,7 +13,7 @@ function Header(): JSX.Element {
     <header className="header">
       Header
       <button type="button" onClick={changeVisible}>
-        x
+        xЧЧ
       </button>
       {visible && <BurgerMenu isVisible={visible} setVisible={setVisible} />}
     </header>

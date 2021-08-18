@@ -1,14 +1,18 @@
 import React from "react";
 
 import "../../styles/molecules/BurgerMenu.scss";
-import Img from "../../../assets/t.jpeg";
+// import Img from "../../../assets/t.jpeg";
 import { ReactComponent as MySvg } from "../../../assets/cashback.svg";
 import BurgerMenuLink from "../atoms/BurgerMenuLink";
 
-function BurgerMenu(props: any) {
+interface Props {
+  isVisible: boolean;
+  setVisible: any;
+}
+function BurgerMenu(props: Props): JSX.Element {
   const { isVisible, setVisible } = props;
 
-  const changeVisible = () => setVisible(false);
+  const changeVisible = (): void => setVisible(false);
 
   const links: { title: string; link: string }[] = [
     { title: "Главная", link: "https://www.google.com/" },
@@ -28,13 +32,12 @@ function BurgerMenu(props: any) {
             <span className="burger-menu__logotype__orange">kiss</span>
             miss
           </h2>
-          <button
-            type="button"
+          <MySvg
             onClick={changeVisible}
             className="burger-menu__button"
-          >
-            <img src={Img} alt="Cartoons" />
-          </button>
+            alt="Иконка закрыть"
+          />
+          {/* <img src={Img} alt="Закрыть" /> */}
         </div>
         <ul className="burger-menu__links">
           {links.map((link) => (
@@ -42,9 +45,8 @@ function BurgerMenu(props: any) {
           ))}
         </ul>
         <div>
-          <MySvg />
           <a href="tel:+375(33)699-86-04" className="burger-menu__phone">
-            +375(33)699-86-04
+            +375(33)999-88-00
           </a>
         </div>
       </div>
