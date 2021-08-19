@@ -10,7 +10,8 @@ const initialState: InitialState = {
   visible: false,
 };
 
-export const GlobalContext = createContext(initialState);
+export const GlobalContext = createContext<any>(initialState);
+
 export const GlobalProvider = ({ children }: any) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -22,9 +23,7 @@ export const GlobalProvider = ({ children }: any) => {
   }
 
   return (
-    <GlobalContext.Provider
-      value={{ visible: state.visible, changeVisibleBurgerMenu }}
-    >
+    <GlobalContext.Provider value={{ state, changeVisibleBurgerMenu }}>
       {children}
     </GlobalContext.Provider>
   );

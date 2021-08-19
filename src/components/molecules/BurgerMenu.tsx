@@ -1,18 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import "../../styles/molecules/BurgerMenu.scss";
 import Img from "../../../assets/t.jpeg";
 import { ReactComponent as MySvg } from "../../../assets/cashback.svg";
 import BurgerMenuLink from "../atoms/BurgerMenuLink";
+import { GlobalContext } from "../../store/state";
 
-interface Props {
-  isVisible: boolean;
-  setVisible: any;
-}
-function BurgerMenu(props: Props): JSX.Element {
-  const { isVisible, setVisible } = props;
-
-  const changeVisible = () => setVisible(false);
+function BurgerMenu(): JSX.Element {
+  const { changeVisibleBurgerMenu }: any = useContext(GlobalContext);
 
   const links: { title: string; link: string }[] = [
     { title: "Главная", link: "https://www.google.com/" },
@@ -33,7 +28,7 @@ function BurgerMenu(props: Props): JSX.Element {
             miss
           </h2>
           <MySvg
-            onClick={changeVisible}
+            onClick={() => changeVisibleBurgerMenu(false)}
             className="burger-menu__button"
             alt="Иконка закрыть"
           />
