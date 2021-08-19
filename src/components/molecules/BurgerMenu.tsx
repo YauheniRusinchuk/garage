@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import "../../styles/molecules/BurgerMenu.scss";
 import Img from "../../../assets/t.jpeg";
@@ -7,7 +7,11 @@ import BurgerMenuLink from "../atoms/BurgerMenuLink";
 import { GlobalContext } from "../../store/state";
 
 function BurgerMenu(): JSX.Element {
-  const { changeVisibleBurgerMenu }: any = useContext(GlobalContext);
+  const {
+    changeVisibleBurgerMenu,
+  }: {
+    changeVisibleBurgerMenu: (value: boolean) => void;
+  } = useContext(GlobalContext);
 
   const links: { title: string; link: string }[] = [
     { title: "Главная", link: "https://www.google.com/" },
@@ -18,6 +22,13 @@ function BurgerMenu(): JSX.Element {
     { title: "Контакты", link: "https://www.google.com/" },
     { title: "Как проехать", link: "https://www.google.com/" },
   ];
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "visible";
+    };
+  }, []);
 
   return (
     <>
@@ -32,7 +43,7 @@ function BurgerMenu(): JSX.Element {
             className="burger-menu__button"
             alt="Иконка закрыть"
           />
-          <img className="burger-menu_image" src={Img} alt="Закрыть" />
+          <img className="burger-menu_image" src={Img} alt="Значок закрыть" />
         </div>
         <ul className="burger-menu__links">
           {links.map((link) => (
@@ -47,9 +58,9 @@ function BurgerMenu(): JSX.Element {
             garage@mail.ru
           </a>
           <div>
-            <MySvg className="burger-menu__button" alt="Иконка закрыть" />
-            <MySvg className="burger-menu__button" alt="Иконка закрыть" />
-            <MySvg className="burger-menu__button" alt="Иконка закрыть" />
+            <MySvg className="burger-menu__button" alt="vk.com" />
+            <MySvg className="burger-menu__button" alt="instagram" />
+            <MySvg className="burger-menu__button" alt="telegram" />
           </div>
         </div>
       </div>

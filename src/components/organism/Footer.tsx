@@ -3,8 +3,8 @@ import { GlobalContext } from "../../store/state";
 
 function Footer(): JSX.Element {
   const a = 10;
-  
-return (
+
+  return (
     <>
       <div>sadasd</div>
       <div> FOOTER</div>

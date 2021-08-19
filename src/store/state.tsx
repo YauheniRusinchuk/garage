@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from "react";
 
 import reducer from "./reducer";
 
-interface InitialState {
+export interface InitialState {
   visible: boolean;
 }
 
