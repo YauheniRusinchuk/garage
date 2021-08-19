@@ -3,17 +3,20 @@ import Footer from "./components/organism/Footer";
 import Header from "./components/organism/Header";
 import Main from "./components/organism/Main";
 import "./App.css";
+import { GlobalProvider } from "./store/state";
 
 const App: React.FC = (): JSX.Element => {
   const a = 10;
 
   return (
     <>
-      <div>
-        <Header />
-        <Main />
-        <Footer />
-      </div>
+      <GlobalProvider>
+        <div>
+          <Header />
+          <Main />
+          <Footer />
+        </div>
+      </GlobalProvider>
     </>
   );
 };

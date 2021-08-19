@@ -1,7 +1,7 @@
 import React from "react";
 
 import "../../styles/molecules/BurgerMenu.scss";
-// import Img from "../../../assets/t.jpeg";
+import Img from "../../../assets/t.jpeg";
 import { ReactComponent as MySvg } from "../../../assets/cashback.svg";
 import BurgerMenuLink from "../atoms/BurgerMenuLink";
 
@@ -12,7 +12,7 @@ interface Props {
 function BurgerMenu(props: Props): JSX.Element {
   const { isVisible, setVisible } = props;
 
-  const changeVisible = (): void => setVisible(false);
+  const changeVisible = () => setVisible(false);
 
   const links: { title: string; link: string }[] = [
     { title: "Главная", link: "https://www.google.com/" },
@@ -37,7 +37,7 @@ function BurgerMenu(props: Props): JSX.Element {
             className="burger-menu__button"
             alt="Иконка закрыть"
           />
-          {/* <img src={Img} alt="Закрыть" /> */}
+          <img className="burger-menu_image" src={Img} alt="Закрыть" />
         </div>
         <ul className="burger-menu__links">
           {links.map((link) => (
@@ -48,6 +48,14 @@ function BurgerMenu(props: Props): JSX.Element {
           <a href="tel:+375(33)699-86-04" className="burger-menu__phone">
             +375(33)999-88-00
           </a>
+          <a href="mailto:garage@mail.ru" className="burger-menu__phone">
+            garage@mail.ru
+          </a>
+          <div>
+            <MySvg className="burger-menu__button" alt="Иконка закрыть" />
+            <MySvg className="burger-menu__button" alt="Иконка закрыть" />
+            <MySvg className="burger-menu__button" alt="Иконка закрыть" />
+          </div>
         </div>
       </div>
     </>

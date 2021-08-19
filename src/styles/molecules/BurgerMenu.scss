@@ -16,14 +16,22 @@
   align-items: flex-end;
   width: 80%;
   height: 100vh;
+  -webkit-box-shadow: -10px 0px 27px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: -10px 0px 27px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: -10px 0px 27px 0px rgba(34, 60, 80, 0.2);
 
-  .burger-menu__header{
+  .burger-menu__header {
     display: flex;
+    .burger-menu_image {
+      position: absolute;
+      top: 20%;
+      left: 0;
+    }
   }
   .burger-menu__logotype {
     @include title;
     color: $lightGrey;
-    .burger-menu__logotype__orange{
+    .burger-menu__logotype__orange {
       color: $orange;
     }
   }
