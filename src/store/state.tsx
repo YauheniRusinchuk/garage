@@ -7,7 +7,7 @@ export interface InitialState {
 }
 
 const initialState: InitialState = {
-  visible: false,
+  visible: true,
 };
 
 export const GlobalContext = createContext<any>(initialState);
