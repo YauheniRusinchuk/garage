@@ -30,6 +30,14 @@
   font-family: "AGAalenBold Roman", arial;
   font-weight: 100;
   font-style: normal;
-  font-size: 1.5rem;
+  font-size: 28px;
   line-height: 2.375rem;
+}
+
+@mixin contacts {
+  font-family: "Arial";
+  font-weight: 800;
+  font-style: italic;
+  font-size: 20px;
+  text-decoration: none;
 }

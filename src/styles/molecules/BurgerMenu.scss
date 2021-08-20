@@ -2,9 +2,16 @@
 @import "../common/fonts.scss";
 @import "../common/colors.scss";
 
-.burger-menu__visible {
-  display: none;
+@mixin svgBeforePosition {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -25px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
 }
+
 
 .burger-menu {
   background-color: $backgroundBlue;
@@ -12,21 +19,28 @@
   position: absolute;
   right: 0;
   top: 0;
+  z-index: 5;
   flex-direction: column;
   align-items: flex-end;
-  width: 80%;
+  width: 85%;
   height: 100vh;
+  padding-top: 20px;
   -webkit-box-shadow: -10px 0px 27px 0px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: -10px 0px 27px 0px rgba(34, 60, 80, 0.2);
   box-shadow: -10px 0px 27px 0px rgba(34, 60, 80, 0.2);
 
   .burger-menu__header {
     display: flex;
-    .burger-menu_image {
-      position: absolute;
-      top: 20%;
-      left: 0;
-    }
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .burger-menu__time {
+    @include title;
+    color: $lightGrey;
+    font-size: 14px;
+    line-height: normal;
   }
   .burger-menu__logotype {
     @include title;
@@ -42,27 +56,71 @@
     width: 20px;
     height: 20px;
     background-color: transparent;
-    margin: 15px 15px 0;
     color: $realWhite;
   }
+
+.burger-menu__main-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+
   .burger-menu__links {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    padding-top: 50px;
+    padding-top: 0;
     width: 100%;
-    align-items: center;
+    align-items: flex-end;
     margin: 0 auto;
+    background-image: url(../../../assets/t.jpeg);
+    background-repeat: no-repeat;
+    background-size:  50%;
+    background-position: -20px 25%;
 
     .burger-menu__link {
       @include linkBurgerMenu;
+      display: block;
       color: $grey;
       justify-content: right;
       text-decoration: none;
-      padding: 15px 0;
-      font-size: 30px;
+      padding: 1vh 0;
       width: 100%;
       text-align: right;
     }
   }
+
+
+.burger-menu_contacts {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10%;
+
+  .burger-menu__phone {
+    margin-bottom: 15px;
+    position: relative;
+    @include contacts;
+    color: $grey;
+
+    &::before {
+      @include svgBeforePosition;
+      background-image: url(../../../assets/cashback.svg);
+    }
+  }
+  .burger-menu__email {
+    position: relative;
+    margin-bottom: 15px;
+    @include contacts;
+    color: $grey;
+
+    &::before {
+      @include svgBeforePosition;
+      background-image: url(../../../assets/cashback.svg);
+    }
+  }
+}
+}
+    
 }

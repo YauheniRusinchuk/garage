@@ -1,7 +1,9 @@
 @import "normalize.css";
 @import "./styles/common/reset.scss";
+@import "./styles/common/colors.scss";
 
 body {
   font-family: "Arial";
   width: 80px;
+  background-color: $backgroundBlue;
 }

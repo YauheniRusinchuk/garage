@@ -34,33 +34,37 @@ function BurgerMenu(): JSX.Element {
     <>
       <div className="burger-menu">
         <div className="burger-menu__header">
-          <h2 className="burger-menu__logotype">
-            <span className="burger-menu__logotype__orange">kiss</span>
-            miss
-          </h2>
+          <div>
+            <h2 className="burger-menu__logotype">
+              <span className="burger-menu__logotype__orange">G</span>
+              ARAGE
+            </h2>
+            <span className="burger-menu__time">С 09:00 ДО 21:00</span>
+          </div>
           <MySvg
             onClick={() => changeVisibleBurgerMenu(false)}
             className="burger-menu__button"
             alt="Иконка закрыть"
           />
-          <img className="burger-menu_image" src={Img} alt="Значок закрыть" />
         </div>
-        <ul className="burger-menu__links">
-          {links.map((link) => (
-            <BurgerMenuLink key={link.title} item={link} />
-          ))}
-        </ul>
-        <div>
-          <a href="tel:+375(33)699-86-04" className="burger-menu__phone">
-            +375(33)999-88-00
-          </a>
-          <a href="mailto:garage@mail.ru" className="burger-menu__phone">
-            garage@mail.ru
-          </a>
-          <div>
-            <MySvg className="burger-menu__button" alt="vk.com" />
-            <MySvg className="burger-menu__button" alt="instagram" />
-            <MySvg className="burger-menu__button" alt="telegram" />
+        <div className="burger-menu__main-wrapper">
+          <ul className="burger-menu__links">
+            {links.map((link) => (
+              <BurgerMenuLink key={link.title} item={link} />
+            ))}
+          </ul>
+          <div className="burger-menu_contacts">
+            <a href="tel:+375(33)699-86-04" className="burger-menu__phone">
+              +375(33)999-88-00
+            </a>
+            <a href="mailto:garage@mail.ru" className="burger-menu__email">
+              garage@mail.ru
+            </a>
+            <div>
+              <MySvg className="burger-menu__button" alt="vk.com" />
+              <MySvg className="burger-menu__button" alt="instagram" />
+              <MySvg className="burger-menu__button" alt="telegram" />
+            </div>
           </div>
         </div>
       </div>
