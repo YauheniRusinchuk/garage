@@ -21,7 +21,7 @@ function Header(): JSX.Element {
     <header className="header">
       Header
       <button type="button" onClick={() => changeVisibleBurgerMenu(true)}>
-        xЧЧ
+        Гараж Епта
       </button>
       {visible && (
         <div className="burger-menu_background">
