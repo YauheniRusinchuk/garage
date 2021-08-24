@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from "react";
 import BurgerMenu from "../molecules/BurgerMenu";
 import "../../styles/organisms/Header.scss";
-import { useOnClickOutside } from "../../hooks/useOnClickOutside";
+import useOnClickOutside from "../../hooks/useOnClickOutside";
 import { GlobalContext, InitialState } from "../../store/state";
 
 function Header(): JSX.Element {

@@ -5,7 +5,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../../styles/organisms/Main.scss";
 
-function Main(): JSX.Element {
+const itemsMenu: any[] = [
+  { id: 1, label: "Галерея" },
+  { id: 2, label: "Как проехать?" },
+  { id: 3, label: "Расчет стоимости" },
+  { id: 4, label: "Расточка дисков" },
+  { id: 5, label: "Контакты" },
+];
+
+const Main = () => {
   const settings = {
     dots: false,
     speed: 500,
@@ -19,28 +27,15 @@ function Main(): JSX.Element {
     <div className="main">
       <div className="main-nav__wrapper">
         <Slider {...settings}>
-          <div>
-            <p className="main-nav__item">Галерея</p>
-          </div>
-          <div>
-            <p className="main-nav__item">Как проехать?</p>
-          </div>
-          <div>
-            <p className="main-nav__item">Расчет стоимости</p>
-          </div>
-          <div>
-            <p className="main-nav__item">Расточка дисков</p>
-          </div>
-          <div>
-            <p className="main-nav__item">Контакты</p>
-          </div>
-          <div>
-            <p className="main-nav__item">ПРивет я ОЛЕХ</p>
-          </div>
+          {itemsMenu.map((item: any) => (
+            <div key={item.id}>
+              <p className="main-nav__item">{item.label}</p>
+            </div>
+          ))}
         </Slider>
       </div>
     </div>
   );
-}
+};
 
 export default Main;

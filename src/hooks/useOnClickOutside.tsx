@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import { useEffect } from "react";
 
-// eslint-disable-next-line import/prefer-default-export
-export const useOnClickOutside = (ref: any, handler: any) => {
+const useOnClickOutside = (ref: any, handler: any) => {
   useEffect(() => {
     const listener = (event: { target: unknown }) => {
       if (!ref.current || ref.current.contains(event.target)) {
@@ -19,3 +18,5 @@ export const useOnClickOutside = (ref: any, handler: any) => {
     };
   }, [ref, handler]);
 };
+
+export default useOnClickOutside;

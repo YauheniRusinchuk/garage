@@ -4,7 +4,7 @@ type Props = {
   item: { title: string; link: string };
 };
 
-const BurgerMenuLink: React.FC<Props> = ({ item }: Props): JSX.Element => {
+const BurgerMenuLink: React.FC<Props> = ({ item }) => {
   const { title, link } = item;
 
   return (
